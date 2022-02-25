@@ -4,7 +4,7 @@ import { getPosts } from "../services";
 
 export default function Home({ posts }) {
   return (
-    <div className="container mx-auto mb-8 px-10`">
+    <div className="container mx-auto mb-8 px-6 lg:px-10">
       <Head>
         <title>Blog CMS System</title>
         <meta name="description" content="Blog CMS System" />
