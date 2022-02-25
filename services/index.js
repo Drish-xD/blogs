@@ -1,7 +1,7 @@
 import { request, gql } from "graphql-request";
 
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
-console.log(graphqlAPI);
+
 export const getPosts = async () => {
   const query = gql`
     query MyQuery {
@@ -35,4 +35,49 @@ export const getPosts = async () => {
 
   const res = await request(graphqlAPI, query);
   return res.postsConnection.edges;
+};
+
+export const getRecentPosts = async () => {
+  const query = gql`
+    query GetPostDetails() {
+      posts(
+        orderBy: createdAt_DESC
+        last: 3
+        ) {
+          createdAt
+          slug
+          title
+          featuredImage {
+            url
+          }
+        }
+    }
+  `;
+
+  const res = await request(graphqlAPI, query);
+  return res.posts;
+};
+
+export const getSimilarPosts = async () => {
+  const query = gql`
+    query GetPostDetails($slug: string!, $categories: [string!]) {
+      posts(
+        where: {
+          slug_not: $slug
+          AND: { categories_some: { slug_in: $categories } }
+        }
+        last: 3
+      ) {
+        createdAt
+        slug
+        title
+        featuredImage {
+          url
+        }
+      }
+    }
+  `;
+
+  const res = await request(graphqlAPI, query);
+  return res.posts;
 };
