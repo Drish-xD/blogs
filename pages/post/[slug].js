@@ -14,8 +14,8 @@ const PostDetails = ({ post }) => {
   return (
     <div className="container mx-auto mb-8 px-10`">
       <Head>
-        <title>Blog CMS System</title>
-        <meta name="description" content="Blog CMS System" />
+        <title>{post.title}</title>
+        <meta name="description" content={post.excerpt} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
