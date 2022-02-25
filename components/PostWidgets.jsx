@@ -16,7 +16,7 @@ const PostWidgets = ({ categories, slug }) => {
   }, [categories, slug]);
 
   return (
-    <div className="bg-white shadow-lg rounded-lg p-8 mb-8 mx-2 lg:mx-0">
+    <div className="bg-white shadow-lg rounded-lg p-8 mb-8">
       <h3 className="text-xl mb-8 font-semibold border-b pb-4">
         {!slug ? "Recent Posts" : "Related Posts"}
       </h3>

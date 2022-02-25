@@ -12,7 +12,7 @@ import {
 
 const PostDetails = ({ post }) => {
   return (
-    <div className="container mx-auto mb-8 px-10`">
+    <div className="container mx-auto mb-8 px-6 lg:px-10">
       <Head>
         <title>{post.title}</title>
         <meta name="description" content={post.excerpt} />

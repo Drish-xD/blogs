@@ -6,7 +6,7 @@ import { CalendarIcon } from "@radix-ui/react-icons";
 
 const PostCard = ({ post }) => {
   return (
-    <div className="bg-white shadow-lg rounded-lg lg:p-8 pb-8 mb-8 mx-2 lg:mx-0">
+    <div className="bg-white shadow-lg rounded-lg lg:p-8 pb-8 mb-8">
       <div className="relative overflow-hidden shadow-md pb-80 mb-6">
         <Img
           src={post.featuredImage.url}
